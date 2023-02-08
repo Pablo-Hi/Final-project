@@ -5,9 +5,9 @@
     <h3 class="header-title">Welcome to Wu Tasks</h3>
     <p class="header-subtitle">Start Organizing your tasks todays!</p>
     <p>Sing in</p>
-    <form action="singIn">
+    <form @submit.prevent="signIn">
       <input type="email" placeholder="example@gmail.com" v-model="email" />
-      <input type="pasword" placeholder="**********" v-model="pasword" />
+      <input type="password" placeholder="**********" v-model="password" />
       <button class="button" type="submit">Sign In</button>
     </form>
 
@@ -24,17 +24,22 @@
 
 <script setup>
 import PersonalRouter from "./PersonalRouter.vue";
-import { ref, reactive }
-
-
+import { ref, reactive } from "vue";
+import { useUserStore } from "../stores/user";
+import { useRouter } from "vue-router";
 
 // Route Variables
 const route = "/auth/signup";
 const buttonText = "Sign Up";
 
+const email = ref("");
+const password = ref("");
+
+// Router to push user once SignedUp to Log In
+const redirect = useRouter();
+
 // Arrow function to Signin user to supaBase
 const signIn = async () => {
-  console.log("Hola pepsicola");
   if (email.value) {
     try {
       await useUserStore().signIn(email.value, password.value);
