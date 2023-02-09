@@ -18,7 +18,7 @@
         v-model="description"
       />
     </div>
-    <button @click="addTaskComponent" class="button">Add task</button>
+    <button @click="addTask" class="button">Add task</button>
   </div>
 </template>
 
@@ -32,16 +32,15 @@ const taskStore = useTaskStore();
 const name = ref("");
 const description = ref("");
 
-const emit = defineEmits(["addTitle"]);
-
 // constant to save a variable that holds an initial false boolean value for the errorMessage container that is conditionally displayed depending if the input field is empty
 const showErrorMessage = ref(false);
+const emit = defineEmits(["addTitle"]);
 
 // const constant to save a variable that holds the value of the error message
 const errorMessage = ref(null);
 
 // Arrow function para crear tareas.
-const addTaskComponent = async () => {
+const addTask = async () => {
   if (name.value.length === 0 || description.value.length === 0) {
     // Primero comprobamos que ningún campo del input esté vacío y lanzamos el error con un timeout para informar al user.
 

@@ -1,9 +1,30 @@
 <template>
-  <div class="container">
+  <div :class="{ container: isTachado }">
     <h3>{{ task.title }}</h3>
-    <button @click="switchToComplete">Mark as completed</button>
-    <button @click="deleteTask">Edit task</button>
+    <h4>{{ task.description }}</h4>
     <button @click="deleteTask">Delete</button>
+    <button
+      @click="switchToComplete"
+      :class="{ markAsCompletedBtn: isTachado }"
+    >
+      Mark as completed
+    </button>
+    <button @click="inputToggle">Edit task</button>
+    <div v-if="showInput">
+      <div>
+        <p>Insert new title</p>
+        <input type="text" v-model="newTitle" placeholder="Insert title..." />
+      </div>
+      <div>
+        <p>Insert new description</p>
+        <input
+          type="text"
+          v-model="newDescription"
+          placeholder="Insert description..."
+        />
+      </div>
+      <button @click="sendData">Update task</button>
+    </div>
   </div>
 </template>
 
@@ -13,29 +34,57 @@ import { useTaskStore } from "../stores/task";
 import { supabase } from "../supabase";
 
 const taskStore = useTaskStore();
+const emit = defineEmits(["updateTask"]);
 
 const props = defineProps({
   task: Object,
 });
+const isTachado = ref(props.task.is_complete);
+
+const showInput = ref(false);
+const newTitle = ref("");
+const newDescription = ref("");
+
+function inputToggle() {
+  showInput.value = !showInput.value;
+}
+
+function switchToComplete() {
+  isTachado.value = !isTachado.value;
+  taskStore.completeTask(isTachado.value, props.task.id);
+}
 
 // Función para borrar la tarea a través de la store. //
 
-const emit = defineEmits(["deleteTask"]);
-
 const deleteTask = async () => {
   await taskStore.deleteTask(props.task.id);
-  emit("deleteTask");
+  emit("updateTask");
 };
 
-let switchToComplete = async () => {
-  await taskStore.completeTask(props.task.id);
-  emit("deleteTask");
+const sendData = async () => {
+  if (newTitle.value.length < 4 || newDescription.value.length < 4) {
+    //Lanzar un error
+  } else {
+    taskStore.editTask(newTitle.value, newDescription.value, props.task.id);
+    emit("updateTask");
+  }
+  inputToggle();
 };
 
 // bindear una clase en el template con un ternario
 </script>
 
-<style scoped></style>
+<style scoped>
+.container {
+  color: gray;
+  background-color: rgb(218, 209, 209);
+}
+
+.markAsCompletedBtn {
+  color: white;
+  background-color: green;
+}
+</style>
 
 <!--
 **Hints**

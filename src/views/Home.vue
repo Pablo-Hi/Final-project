@@ -9,7 +9,7 @@
     <NewTask @addTitle="getTasks" />
     <h1>Tasks:</h1>
     <TaskItem
-      @deleteTask="getTasks"
+      @updateTask="getTasks"
       v-for="task in tasks"
       :key="task.id"
       :task="task"
@@ -26,7 +26,6 @@ import NewTask from "../components/NewTask.vue";
 import TaskItem from "../components/TaskItem.vue";
 
 const taskStore = useTaskStore();
-console.log("Task store", taskStore);
 
 // Variable para guardar las tareas de supabase
 const tasks = ref([]);
