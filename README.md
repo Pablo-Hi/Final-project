@@ -43,10 +43,20 @@ Para el día de hoy quiero dar lógica a los botones de "mark as a completed", "
 
 - End of the day:
 
+He conseguido hacer todos los objetivos que tenía planeados para hoy, a demás le he podido añadir alguna foto y también configurar el botón de log out.
+
+- [x] Dar lógica al boton de "mark as a completed".
+- [x] Dar lógica al boton de "delete".
+- [x] Dar lógica al boton de "edit".
+
 #### Day Four
 
 ###### Viernes 10, Febrero 2023
 
 - Start of the day:
+
+Para el día de hoy me he propuesto terminar la parte de profile donde el usuario puede añadir su foto y editar sus datos.
+
+- [ ] Añadir funciones al apartado del usuario.
 
 - End of the day:

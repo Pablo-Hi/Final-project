@@ -2,7 +2,7 @@
   <div :class="{ container: isTachado }">
     <h3>{{ task.title }}</h3>
     <h4>{{ task.description }}</h4>
-    <button @click="deleteTask">Delete</button>
+    <button @click="alertToggle">Delete</button>
     <button
       @click="switchToComplete"
       :class="{ markAsCompletedBtn: isTachado }"
@@ -24,6 +24,15 @@
         />
       </div>
       <button @click="sendData">Update task</button>
+    </div>
+    <div v-if="showAlert" class="caution-container">
+      <h2>Sure you want to delete?</h2>
+      <img
+        src="https://www.graphicproducts.com/assets/images/products/926-label.png"
+        alt="delete alert"
+      />
+      <button @click="alertToggle">Cancel</button>
+      <button @click="deleteTask">Delete</button>
     </div>
   </div>
 </template>
@@ -70,6 +79,12 @@ const sendData = async () => {
   }
   inputToggle();
 };
+
+const showAlert = ref(false);
+
+function alertToggle() {
+  showAlert.value = !showAlert.value;
+}
 
 // bindear una clase en el template con un ternario
 </script>

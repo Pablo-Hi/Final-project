@@ -2,7 +2,11 @@
 
 <template>
   <div class="container">
-    <h3 class="header-title">Welcome to Wu Tasks</h3>
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Alabama_Crimson_Tide_logo.svg/2048px-Alabama_Crimson_Tide_logo.svg.png"
+      alt="alabama logo"
+    />
+    <h3 class="header-title">Welcome Player!</h3>
     <p class="header-subtitle">Start Organizing your tasks todays!</p>
     <p>Sing in</p>
     <form @submit.prevent="signIn">
@@ -52,4 +56,10 @@ const signIn = async () => {
 };
 </script>
 
-<style></style>
+<style>
+.contaienr {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+</style>
