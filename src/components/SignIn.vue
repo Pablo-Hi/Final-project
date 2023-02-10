@@ -1,18 +1,21 @@
 <!-- COMPONENTE BOILERPLATE -->
 
 <template>
-  <div class="container">
-    <img
-      src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Alabama_Crimson_Tide_logo.svg/2048px-Alabama_Crimson_Tide_logo.svg.png"
-      alt="alabama logo"
-    />
+  <div class="containerSingIn">
+    <div>
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Alabama_Crimson_Tide_logo.svg/2048px-Alabama_Crimson_Tide_logo.svg.png"
+        alt="alabama logo"
+      />
+    </div>
+
     <h3 class="header-title">Welcome Player!</h3>
     <p class="header-subtitle">Start Organizing your tasks todays!</p>
     <p>Sing in</p>
     <form @submit.prevent="signIn">
       <input type="email" placeholder="example@gmail.com" v-model="email" />
       <input type="password" placeholder="**********" v-model="password" />
-      <button class="button" type="submit">Sign In</button>
+      <GeneralButton type="submit">Sign In</GeneralButton>
     </form>
 
     <p>
@@ -20,7 +23,7 @@
       <PersonalRouter
         :route="route"
         :buttonText="buttonText"
-        class="sign-up-link"
+        class="principal-button"
       />
     </p>
   </div>
@@ -31,6 +34,7 @@ import PersonalRouter from "./PersonalRouter.vue";
 import { ref, reactive } from "vue";
 import { useUserStore } from "../stores/user";
 import { useRouter } from "vue-router";
+import GeneralButton from "./GeneralButton.vue";
 
 // Route Variables
 const route = "/auth/signup";
@@ -57,7 +61,7 @@ const signIn = async () => {
 </script>
 
 <style>
-.contaienr {
+.containerSingIn {
   display: flex;
   flex-direction: column;
   text-align: center;

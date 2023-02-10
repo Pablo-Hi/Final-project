@@ -1,12 +1,12 @@
-/* :root {
+  @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+  
+:root {
     --colorWhite: #ffffff;
     --colorBlack: #000000;
-    --colorRed: red;
-    --fontSize-sm: 16px;
-    --fontFamily: 'Arial, Helvetica, sans-serif';
-    --fontTitle: 'Arial';
-    --fontBody: 'Helvetica';
-} */
+    --colorRed: #a7042d;
+    --colorGray: #c9c9c9; 
+}
 
 /* SignIn Component */
 
@@ -19,3 +19,10 @@
 /* Home view */
 
 /* Account View */
+
+body{
+    font-family: 'Roboto Slab', serif;
+}
+
+
+

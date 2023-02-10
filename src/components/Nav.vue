@@ -34,7 +34,21 @@
 import { useUserStore } from "../stores/user";
 import { computed } from "vue";
 import { useRouter } from "vue-router";
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
+
+const username = ref(null);
+const userStore = useUserStore();
+const avatar_url = ref(null);
+
+onMounted(() => {
+  getProfile();
+});
+
+async function getProfile() {
+  await userStore.fetchUser();
+  username.value = userStore.profile.username;
+  avatar_url.value = userStore.profile.avatar_url;
+}
 
 //constant to save a variable that will hold the use router method
 const route = "/";
@@ -66,7 +80,7 @@ const signOut = async () => {
 }
 
 nav {
-  background-color: lightgray;
+  background-color: #c9c9c9;
   display: flex;
   width: 100%;
   justify-content: space-around;

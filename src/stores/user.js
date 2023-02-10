@@ -67,6 +67,16 @@ export const useUserStore = defineStore("user", {
       const { error } = await supabase.auth.signOut();
       if (error) throw error;
     },
+    
+    async editProfile (username, usernumber, userposition, userheight, userweight) {
+      const { data, error } = await supabase.from("profiles").update({
+        username: username,
+        usernumber: usernumber,
+        userposition: userposition,
+        userheight: userheight,
+        userweight: userweight,
+      }).match({user_id: this.user.id});
+    }
   },
 
   persist: {
@@ -78,4 +88,5 @@ export const useUserStore = defineStore("user", {
       },
     ],
   },
+
 });

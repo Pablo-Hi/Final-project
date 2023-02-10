@@ -60,3 +60,7 @@ Para el día de hoy me he propuesto terminar la parte de profile donde el usuari
 - [ ] Añadir funciones al apartado del usuario.
 
 - End of the day:
+
+Al terminar el día puedo decir que casi he completado la parte de profile, solo me faltaría poder modificar también la imagen. Puedo modificar todos los parametros que he puesto y he añadido otros diferentes.
+
+- [x] Añadir funciones al apartado del usuario.

@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-
     <div class="header">
       <div class="header-description">
         <h3 class="header-title">Register to ToDo App</h3>
@@ -43,19 +42,19 @@
             required
           />
         </div>
-        <button class="button" type="submit">Sign Up</button>
+        <GeneralButton type="submit">Sign Up</GeneralButton>
         <p>
           Have an account?
           <PersonalRouter
             :route="route"
             :buttonText="buttonText"
-            class="sign-up-link"
+            class="principal-button"
           />
         </p>
       </div>
     </form>
 
-    <div v-show="errorMsg">{{errorMsg}}</div>
+    <div v-show="errorMsg">{{ errorMsg }}</div>
   </div>
 </template>
 
@@ -66,6 +65,7 @@ import { supabase } from "../supabase";
 import { useRouter } from "vue-router";
 import { useUserStore } from "../stores/user";
 import { storeToRefs } from "pinia";
+import GeneralButton from "../components/GeneralButton.vue";
 
 // Route Variables
 const route = "/auth/login";
