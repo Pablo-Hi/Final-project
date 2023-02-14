@@ -1,19 +1,17 @@
 <template>
-  <div class="container">
-    <div class="header">
+  <body class="sign-up-body">
+    <div class="sign-up-container">
       <div class="header-description">
-        <h3 class="header-title">Register to ToDo App</h3>
+        <h1 class="header-title">Become a player!</h1>
         <p class="header-subtitle">Start organizing your tasks!</p>
       </div>
-    </div>
 
-    <form @submit.prevent="signUp" class="form-sign-in">
-      <div class="form">
+      <form @submit.prevent="signUp" class="form-sign-in">
         <div class="form-input">
           <label class="input-field-label">E-mail</label>
           <input
             type="email"
-            class="input-field"
+            class="email-input"
             placeholder="example@gmail.com"
             id="email"
             v-model="email"
@@ -23,8 +21,8 @@
         <div class="form-input">
           <label class="input-field-label">Password</label>
           <input
+            class="email-input"
             type="password"
-            class="input-field"
             placeholder="**********"
             id="password"
             v-model="password"
@@ -34,28 +32,26 @@
         <div class="form-input">
           <label class="input-field-label">Confirm password</label>
           <input
+            class="email-input"
             type="password"
-            class="input-field"
             placeholder="**********"
             id="confirmPassword"
             v-model="confirmPassword"
             required
           />
         </div>
-        <GeneralButton type="submit">Sign Up</GeneralButton>
-        <p>
-          Have an account?
-          <PersonalRouter
-            :route="route"
-            :buttonText="buttonText"
-            class="principal-button"
-          />
-        </p>
-      </div>
-    </form>
+        <ButtonTwo type="submit">Sign Up</ButtonTwo>
+        <p>Have an account?</p>
+        <PersonalRouter
+          :route="route"
+          :buttonText="buttonText"
+          class="button-two"
+        />
+      </form>
 
-    <div v-show="errorMsg">{{ errorMsg }}</div>
-  </div>
+      <div v-show="errorMsg">{{ errorMsg }}</div>
+    </div>
+  </body>
 </template>
 
 <script setup>
@@ -66,6 +62,7 @@ import { useRouter } from "vue-router";
 import { useUserStore } from "../stores/user";
 import { storeToRefs } from "pinia";
 import GeneralButton from "../components/GeneralButton.vue";
+import ButtonTwo from "./ButtonTwo.vue";
 
 // Route Variables
 const route = "/auth/login";
@@ -104,4 +101,54 @@ const signUp = async () => {
 };
 </script>
 
-<style></style>
+<style scoped>
+.sign-up-body {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  background-image: url("https://cdn.vox-cdn.com/thumbor/E0EL7AhJOZx7EorqdS9-J3PnajA=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/24325828/usa_today_17435839.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.sign-up-container {
+  color: var(--colorBlack);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  width: 30vw;
+  height: 70vh;
+  margin: 2%;
+  padding: 5%;
+  background-color: var(--colorWhite);
+  border: 2px solid var(--colorBlack);
+  border-radius: 3px;
+  box-shadow: 7px 7px 15px var(--colorBlack);
+  background-image: url("https://media.istockphoto.com/id/1291938358/es/v%C3%ADdeo/humo-llenando-el-fondo-de-movimiento-de-la-pantalla-alfa-mate.jpg?s=640x640&k=20&c=E_aOY2Jobf6QYj1whzJcB4F7INB3HyqKztzSscjiaow=");
+  background-size: cover;
+  background-position: center;
+}
+
+.header-description {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+}
+
+.form-sign-in {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 60vw;
+}
+
+.input-field-label {
+  margin: 1vh;
+}
+.form-input {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+</style>
+>

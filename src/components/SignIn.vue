@@ -2,7 +2,7 @@
 
 <template>
   <body class="sign-in-body">
-    <div class="containerSingIn">
+    <div class="sing-in-container">
       <div class="alabama-logo">
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Alabama_Crimson_Tide_logo.svg/2048px-Alabama_Crimson_Tide_logo.svg.png"
@@ -81,7 +81,7 @@ const signIn = async () => {
   background-size: cover;
   background-position: center;
 }
-.containerSingIn {
+.sing-in-container {
   color: var(--colorBlack);
   display: flex;
   flex-direction: column;
