@@ -18,6 +18,7 @@
     />
   </div>
   <GeneralButton @click="goToEditProfile">Edit profile</GeneralButton>
+  <ButtonTwo @click="signOut" class="button-two">Log out</ButtonTwo>
 </template>
 
 <script setup>
@@ -62,17 +63,17 @@ async function getProfile() {
   avatar_url.value = userStore.profile.avatar_url;
 }
 
-async function signOut() {
+// async function that calls the signOut method from the useUserStore and pushes the user back to the Auth view.
+// const redirect = useRouter();
+
+const signOut = async () => {
   try {
-    loading.value = true;
-    let { error } = await supabase.auth.signOut();
-    if (error) throw error;
-  } catch (error) {
-    alert(error.message);
-  } finally {
-    loading.value = false;
-  }
-}
+    // call the user store and send the users info to backend to signOut
+    useUserStore().signOut();
+    // then redirect user to the homeView
+    redirect.push({ path: "/auth/login" });
+  } catch (error) {}
+};
 </script>
 
 <style>

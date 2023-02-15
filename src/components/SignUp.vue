@@ -1,52 +1,58 @@
 <template>
+  <!-- YELLOW -->
   <body class="sign-up-body">
+    <!-- PINK -->
     <div class="sign-up-container">
-      <div class="header-description">
-        <h1 class="header-title">Become a player!</h1>
-        <p class="header-subtitle">Start organizing your tasks!</p>
-      </div>
-
+      <!-- GREEN -->
+      <h1 class="header-title">Become a player!</h1>
+      <!-- RED -->
       <form @submit.prevent="signUp" class="form-sign-in">
-        <div class="form-input">
-          <label class="input-field-label">E-mail</label>
-          <input
-            type="email"
-            class="email-input"
-            placeholder="example@gmail.com"
-            id="email"
-            v-model="email"
-            required
+        <!-- BLUE -->
+        <div class="insert-data">
+          <div class="form-input">
+            <label class="input-field-label">E-mail</label>
+            <input
+              type="email"
+              class="email-input"
+              placeholder="example@gmail.com"
+              id="email"
+              v-model="email"
+              required
+            />
+          </div>
+          <div class="form-input">
+            <label class="input-field-label">Password</label>
+            <input
+              class="email-input"
+              type="password"
+              placeholder="**********"
+              id="password"
+              v-model="password"
+              required
+            />
+          </div>
+          <div class="form-input">
+            <label class="input-field-label">Confirm password</label>
+            <input
+              class="email-input"
+              type="password"
+              placeholder="**********"
+              id="confirmPassword"
+              v-model="confirmPassword"
+              required
+            />
+          </div>
+          <ButtonTwo class="btn-sign-up" type="submit">Sign Up</ButtonTwo>
+        </div>
+        <!-- ORANGE -->
+        <div class="go-back">
+          <p>Have an account?</p>
+          <PersonalRouter
+            :route="route"
+            :buttonText="buttonText"
+            class="button-two"
           />
         </div>
-        <div class="form-input">
-          <label class="input-field-label">Password</label>
-          <input
-            class="email-input"
-            type="password"
-            placeholder="**********"
-            id="password"
-            v-model="password"
-            required
-          />
-        </div>
-        <div class="form-input">
-          <label class="input-field-label">Confirm password</label>
-          <input
-            class="email-input"
-            type="password"
-            placeholder="**********"
-            id="confirmPassword"
-            v-model="confirmPassword"
-            required
-          />
-        </div>
-        <ButtonTwo type="submit">Sign Up</ButtonTwo>
-        <p>Have an account?</p>
-        <PersonalRouter
-          :route="route"
-          :buttonText="buttonText"
-          class="button-two"
-        />
       </form>
 
       <div v-show="errorMsg">{{ errorMsg }}</div>
@@ -106,9 +112,11 @@ const signUp = async () => {
   display: flex;
   height: 100vh;
   justify-content: center;
+  align-items: center;
   background-image: url("https://cdn.vox-cdn.com/thumbor/E0EL7AhJOZx7EorqdS9-J3PnajA=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/24325828/usa_today_17435839.jpg");
   background-size: cover;
   background-position: center;
+  /* border: 5px solid yellow; */
 }
 .sign-up-container {
   color: var(--colorBlack);
@@ -116,10 +124,10 @@ const signUp = async () => {
   flex-direction: column;
   text-align: center;
   align-items: center;
-  width: 30vw;
-  height: 70vh;
-  margin: 2%;
-  padding: 5%;
+  position: relative;
+  bottom: 5%;
+  width: 50vw;
+  height: 40vw;
   background-color: var(--colorWhite);
   border: 2px solid var(--colorBlack);
   border-radius: 3px;
@@ -127,28 +135,45 @@ const signUp = async () => {
   background-image: url("https://media.istockphoto.com/id/1291938358/es/v%C3%ADdeo/humo-llenando-el-fondo-de-movimiento-de-la-pantalla-alfa-mate.jpg?s=640x640&k=20&c=E_aOY2Jobf6QYj1whzJcB4F7INB3HyqKztzSscjiaow=");
   background-size: cover;
   background-position: center;
+  /* border: 5px solid pink; */
 }
 
-.header-description {
-  display: flex;
-  flex-direction: column;
-  /* justify-content: space-between; */
+.header-title {
+  position: relative;
+  margin-top: 1%;
+  /* border: 5px solid green; */
 }
 
 .form-sign-in {
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  height: 60vw;
+  justify-content: space-between;
+  margin-top: -5%;
+  height: 70%;
+  width: 35vw;
+  /* border: 5px solid red; */
 }
-
+.btn-sign-up {
+  margin-top: 2vw;
+}
 .input-field-label {
   margin: 1vh;
 }
 .form-input {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: center;
+}
+
+.insert-data {
+  /* border: 3px solid blue; */
+}
+.go-back {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 80%;
+  /* border: 3px solid orange; */
 }
 </style>
 >

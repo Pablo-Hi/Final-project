@@ -1,30 +1,19 @@
 <template>
   <nav>
-    <!-- <PersonalRouter :route="route" :buttonText="buttonText" class="logo-link"/> -->
-    <img
-      src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Alabama_Crimson_Tide_logo.svg/2048px-Alabama_Crimson_Tide_logo.svg.png"
-      alt="alabama logo"
-    />
-    <router-link to="/"> Home </router-link>
-    <ul>
-      <li>
-        <router-link to="/">Task Manager</router-link>
-      </li>
-
-      <li>
-        <router-link to="/account">Your Account</router-link>
-      </li>
-    </ul>
-
-    <div>
-      <ul>
-        <li class="log-out-welcome">
-          <p>Welcome, {{ username }}</p>
-        </li>
-        <li>
-          <button @click="signOut" class="button">Log out</button>
-        </li>
-      </ul>
+    <div class="logo-nav">
+      <img
+        class="nav-img"
+        src="https://i.bleacherreport.net/images/team_logos/328x328/alabama_crimson_tide_football.png?canvas=492,328"
+        alt="alabama logo"
+      />
+    </div>
+    <div class="menu-routes">
+      <router-link to="/"> Home </router-link>
+      <router-link to="/">Task Manager</router-link>
+      <router-link to="/account">Your Account</router-link>
+    </div>
+    <div class="welcome-player">
+      <p>Welcome, {{ username }}!</p>
     </div>
   </nav>
 </template>
@@ -60,38 +49,38 @@ const getUser = useUserStore().user;
 
 // constant that calls user email from the useUSerStore
 const userEmail = getUser.email;
-
-// async function that calls the signOut method from the useUserStore and pushes the user back to the Auth view.
-const redirect = useRouter();
-
-const signOut = async () => {
-  try {
-    // call the user store and send the users info to backend to signOut
-    useUserStore().signOut();
-    // then redirect user to the homeView
-    redirect.push({ path: "/auth/login" });
-  } catch (error) {}
-};
 </script>
 
 <style>
-.navbar-img {
-  width: 90px;
-}
-
 nav {
-  background-color: #c9c9c9;
-  display: flex;
+  /* display: flex;
+  flex-direction: row; */
+  color: var(--colorRed);
+  background-color: var(--colorGray);
   width: 100%;
-  justify-content: space-around;
-  align-items: center;
+  /* align-items: center;
+  justify-content: center; */
+  margin-top: 2vw;
 }
 
-nav ul {
-  list-style: none;
-  padding-inline-start: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.nav-img {
+  height: 50px;
+  width: 70px;
+}
+.logo-nav {
+  position: relative;
+  display: inline-block;
+  border: 3px solid red;
+}
+.menu-routes {
+  position: relative;
+  display: inline-block;
+  border: 3px solid yellow;
+}
+.welcome-player {
+  position: relative;
+  display: inline-block;
+  right: 2vw;
+  border: 3px solid green;
 }
 </style>

@@ -26,7 +26,7 @@
           placeholder="**********"
           v-model="password"
         />
-        <GeneralButton type="submit">Sign In</GeneralButton>
+        <GeneralButton class="btn-sign-in" type="submit">Sign In</GeneralButton>
       </form>
 
       <p class="sign-up-container">
@@ -111,7 +111,10 @@ const signIn = async () => {
   width: 17vw;
   border-radius: 3px;
   box-shadow: 7px 7px 15px var(--colorBlack);
-  margin-bottom: 4px;
+  margin-bottom: 6px;
+}
+.btn-sign-in {
+  margin-top: 1vw;
 }
 
 .sign-up-container {
