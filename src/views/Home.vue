@@ -1,20 +1,20 @@
 <template>
+  <Nav />
   <div class="wrapper">
-    <Nav />
-
-    <div class="content">
-      <h3>Your account:</h3>
-      <router-link to="/account">Account</router-link>
-    </div>
     <NewTask @addTitle="getTasks" />
-    <h1>Tasks:</h1>
-    <TaskItem
-      @updateTask="getTasks"
-      v-for="task in tasks"
-      :key="task.id"
-      :task="task"
-    />
+    <div class="tasks-in-line">
+      <TaskItem
+        @updateTask="getTasks"
+        v-for="task in tasks"
+        :key="task.id"
+        :task="task"
+      />
+    </div>
   </div>
+  <!-- <div class="content">
+    <h3>Your account:</h3>
+    <router-link to="/account">Account</router-link>
+  </div> -->
 </template>
 
 <script setup>
@@ -38,7 +38,20 @@ const getTasks = async () => {
 getTasks();
 </script>
 
-<style></style>
+<style scoped>
+.wrapper {
+  /* border: 3px solid blue; */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh;
+}
+.tasks-in-line {
+  display: flex;
+  justify-content: space-around;
+}
+</style>
 
 <!-- 
 **Hints**

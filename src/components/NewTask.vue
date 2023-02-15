@@ -1,26 +1,32 @@
 <template>
-  <h1>Add a new Task</h1>
-  <div v-if="showErrorMessage">
-    <p class="error-text">{{ errorMessage }}</p>
-  </div>
-  <div>
-    <div class="input-field">
-      <input type="text" placeholder="Add a Task Title" v-model="name" />
+  <div class="add-new-task-container">
+    <h1>ADD A NEW TASK</h1>
+    <div v-if="showErrorMessage">
+      <p class="error-text">{{ errorMessage }}</p>
     </div>
-    <div class="input-field">
-      <input
-        type="text"
-        placeholder="Add a Task Description"
-        v-model="description"
-      />
-    </div>
-    <button @click="addTask" class="button">Add task</button>
+    <input
+      class="input-field-title"
+      type="text"
+      placeholder="Add a Task Title"
+      v-model="name"
+    />
+    <input
+      class="input-field-description"
+      type="text"
+      placeholder="Add a Task Description"
+      v-model="description"
+    />
+    <GeneralButton class="add-task-button" @click="addTask"
+      >Add task</GeneralButton
+    >
   </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
 import { useTaskStore } from "../stores/task";
+import ButtonTwo from "./ButtonTwo.vue";
+import GeneralButton from "./GeneralButton.vue";
 
 const taskStore = useTaskStore();
 
@@ -56,4 +62,33 @@ const addTask = async () => {
 };
 </script>
 
-<style></style>
+<style scoped>
+.add-new-task-container {
+  border: 2px solid var(--colorBlack);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 3vw;
+  width: 40%;
+  height: 50%;
+  border-radius: 30px;
+}
+
+.input-field-title {
+  width: 85%;
+  height: 7%;
+  border-radius: 5px;
+  margin-bottom: 1%;
+}
+
+.input-field-description {
+  width: 85%;
+  height: 20%;
+  border-radius: 5px;
+  margin-bottom: 2%;
+}
+
+.add-task-button {
+  width: 85%;
+}
+</style>

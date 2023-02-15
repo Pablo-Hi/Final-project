@@ -1,5 +1,5 @@
 <template>
-  <div :class="{ container: isTachado }">
+  <div class="task-item-container" :class="{ container: isTachado }">
     <h3>{{ task.title }}</h3>
     <h4>{{ task.description }}</h4>
     <button @click="alertToggle">Delete</button>
@@ -93,11 +93,18 @@ function alertToggle() {
 .container {
   color: gray;
   background-color: rgb(218, 209, 209);
+  border: 2px solid var(--colorBlack);
+  border-radius: 5px;
 }
 
 .markAsCompletedBtn {
   color: white;
   background-color: green;
+}
+
+.task-item-container {
+  border: 2px solid var(--colorBlack);
+  border-radius: 5px;
 }
 </style>
 

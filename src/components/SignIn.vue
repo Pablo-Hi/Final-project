@@ -3,12 +3,11 @@
 <template>
   <body class="sign-in-body">
     <div class="sing-in-container">
-      <div class="alabama-logo">
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Alabama_Crimson_Tide_logo.svg/2048px-Alabama_Crimson_Tide_logo.svg.png"
-          alt="alabama logo"
-        />
-      </div>
+      <img
+        class="alabama-logo"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Alabama_Crimson_Tide_logo.svg/2048px-Alabama_Crimson_Tide_logo.svg.png"
+        alt="alabama logo"
+      />
 
       <h1 class="header-title">Welcome Player!</h1>
       <h3 class="header-subtitle">Start Organizing your tasks todays!</h3>
@@ -97,6 +96,9 @@ const signIn = async () => {
   background-image: url("https://media.istockphoto.com/id/1291938358/es/v%C3%ADdeo/humo-llenando-el-fondo-de-movimiento-de-la-pantalla-alfa-mate.jpg?s=640x640&k=20&c=E_aOY2Jobf6QYj1whzJcB4F7INB3HyqKztzSscjiaow=");
   background-size: cover;
   background-position: center;
+}
+.alabama-logo {
+  width: 200px;
 }
 
 .sign-in-form {

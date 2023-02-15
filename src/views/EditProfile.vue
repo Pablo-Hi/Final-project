@@ -6,23 +6,37 @@
   </div>
   <div>
     <p>Insert new Number</p>
-    <input type="text" v-model="newUserNumber" placeholder="Insert Number..." />
-  </div>
-  <div>
-    <p>Insert new Position</p>
     <input
-      type="text"
-      v-model="newUserPosition"
-      placeholder="Insert Position..."
+      type="number"
+      v-model="newUserNumber"
+      placeholder="Insert Number..."
     />
   </div>
   <div>
-    <p>Insert new Height</p>
+    <p>Insert new Position</p>
+    <select v-model="newUserPosition" name="position" id="">
+      <option value="Tight End">Tight End</option>
+      <option value="Running Back">Line Backer</option>
+      <option value="Quarterback">Quarterback</option>
+      <option value="Wide Receiver">Wide Receiver</option>
+    </select>
+    <!-- <input
+      type="text"
+      v-model="newUserPosition"
+      placeholder="Insert Position..."
+    /> -->
+  </div>
+  <div>
+    <p>Insert new Height (")</p>
     <input type="text" v-model="newUserHeight" placeholder="Insert Height..." />
   </div>
   <div>
-    <p>Insert new Weight</p>
-    <input type="text" v-model="newUserWeight" placeholder="Insert Weight..." />
+    <p>Insert new Weight (lbs)</p>
+    <input
+      type="number"
+      v-model="newUserWeight"
+      placeholder="Insert Weight..."
+    />
   </div>
   <GeneralButton @click="updateProfile">Update profile</GeneralButton>
 </template>
@@ -37,7 +51,7 @@ const newUserName = ref("");
 const newUserNumber = ref("");
 const newUserPosition = ref("");
 const newUserHeight = ref("");
-const newUserWeight = ref("");
+const newUserWeight = ref(null);
 const userStore = useUserStore();
 const redirect = useRouter();
 

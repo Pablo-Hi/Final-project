@@ -24,6 +24,7 @@
 .principal-button:hover {
   color: var(--colorRed);
   border: 2px solid var(--colorRed);
+  cursor: pointer;
 }
 
 .principal-button::after {

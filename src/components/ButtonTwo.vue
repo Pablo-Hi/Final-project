@@ -24,6 +24,7 @@
 .button-two:hover {
   color: var(--colorWhite);
   border: 2px solid var(--colorBlack);
+  cursor: pointer;
 }
 
 .button-two::after {

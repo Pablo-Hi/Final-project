@@ -1,22 +1,26 @@
 <template>
   <Nav />
-  <div>
-    <h3>Name: {{ username }}</h3>
-    <h3>Number: {{ usernumber }}</h3>
-    <h3>Position: {{ userposition }}</h3>
-    <h3>Height: {{ userheight }}</h3>
-    <h3>Weight: {{ userweight }}</h3>
-  </div>
-  <div>
-    <img
-      :src="
-        avatar_url
-          ? avatar_url
-          : 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png'
-      "
-      alt="Profile picture"
-    />
-  </div>
+  <body class="account-body">
+    <div class="total-profile-box">
+      <div class="data-box">
+        <h3>Name: {{ username }}</h3>
+        <h3>Number: {{ usernumber }}</h3>
+        <h3>Position: {{ userposition }}</h3>
+        <h3>Height: {{ userheight }}"</h3>
+        <h3>Weight: {{ userweight }} lbs</h3>
+      </div>
+      <img
+        class="profile-pic"
+        :src="
+          avatar_url
+            ? avatar_url
+            : 'https://www.al.com/resizer/rR7cTV9NONBRBNAurVxfCZYYKK4=/1280x0/smart/cloudfront-us-east-1.images.arcpublishing.com/advancelocal/AYSONSNQ2FGRHKPPZD3UGG3IXM.jpg'
+        "
+        alt="Profile picture"
+      />
+    </div>
+  </body>
+
   <GeneralButton @click="goToEditProfile">Edit profile</GeneralButton>
   <ButtonTwo @click="signOut" class="button-two">Log out</ButtonTwo>
 </template>
@@ -77,8 +81,24 @@ const signOut = async () => {
 </script>
 
 <style>
-img {
+/* img {
   width: 200px;
   border-radius: 50%;
+} */
+.account-body {
+  display: flex;
+  justify-content: center;
+}
+.total-profile-box {
+  display: flex;
+  margin-top: 3%;
+  width: 60%;
+  height: 40%;
+  border: 2px solid black;
+  border-radius: 15px;
+}
+.profile-pic {
+  width: 200px;
+  height: 200px;
 }
 </style>
