@@ -9,20 +9,20 @@
         <h3>Height: {{ userheight }}"</h3>
         <h3>Weight: {{ userweight }} lbs</h3>
       </div>
-      <img
-        class="profile-pic"
-        :src="
-          avatar_url
-            ? avatar_url
-            : 'https://www.al.com/resizer/rR7cTV9NONBRBNAurVxfCZYYKK4=/1280x0/smart/cloudfront-us-east-1.images.arcpublishing.com/advancelocal/AYSONSNQ2FGRHKPPZD3UGG3IXM.jpg'
-        "
-        alt="Profile picture"
-      />
+      <div class="profile-pic">
+        <img
+          class="profile-pic"
+          :src="
+            avatar_url
+              ? avatar_url
+              : 'https://s.yimg.com/ny/api/res/1.2/JejRllNp6vA008DSG_9mIg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTk1MQ--/https://media.zenfs.com/en/the-tuscaloosa-news/c91cbf31a44372ec2def2c29bbf62a1d'
+          "
+          alt="Profile picture"
+        />
+      </div>
     </div>
+    <GeneralButton @click="goToEditProfile">Edit profile</GeneralButton>
   </body>
-
-  <GeneralButton @click="goToEditProfile">Edit profile</GeneralButton>
-  <ButtonTwo @click="signOut" class="button-two">Log out</ButtonTwo>
 </template>
 
 <script setup>
@@ -32,6 +32,8 @@ import { useUserStore } from "../stores/user";
 import Nav from "../components/Nav.vue";
 import GeneralButton from "../components/GeneralButton.vue";
 import { useRouter } from "vue-router";
+import { computed } from "vue";
+
 // import PersonalRouter from "../components/PersonalRouter.vue";
 
 const userStore = useUserStore();
@@ -69,36 +71,41 @@ async function getProfile() {
 
 // async function that calls the signOut method from the useUserStore and pushes the user back to the Auth view.
 // const redirect = useRouter();
-
-const signOut = async () => {
-  try {
-    // call the user store and send the users info to backend to signOut
-    useUserStore().signOut();
-    // then redirect user to the homeView
-    redirect.push({ path: "/auth/login" });
-  } catch (error) {}
-};
 </script>
 
 <style>
-/* img {
-  width: 200px;
-  border-radius: 50%;
-} */
 .account-body {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
 }
 .total-profile-box {
   display: flex;
-  margin-top: 3%;
-  width: 60%;
-  height: 40%;
+  margin: 3%;
+  padding: 1%;
+  width: 500px;
+  height: 300px;
   border: 2px solid black;
+  background-color: var(--colorWhite);
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Alabama_Athletics_logo.svg/800px-Alabama_Athletics_logo.svg.png");
+  background-size: cover;
+  background-position: center;
   border-radius: 15px;
+  box-shadow: 5px 5px 15px var(--colorBlack);
+}
+.data-box {
+  color: var(--colorBlack);
+  font-size: large;
+  height: 100%;
+  width: 100%;
 }
 .profile-pic {
-  width: 200px;
-  height: 200px;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: top;
+  border: 1px solid black;
+  border-radius: 5px;
 }
 </style>

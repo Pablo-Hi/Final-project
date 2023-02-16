@@ -92,8 +92,7 @@ function alertToggle() {
 <style scoped>
 .container {
   color: gray;
-  background-color: rgb(218, 209, 209);
-  border: 2px solid var(--colorBlack);
+  border: 1px solid var(--colorBlack);
   border-radius: 5px;
 }
 
@@ -103,8 +102,10 @@ function alertToggle() {
 }
 
 .task-item-container {
-  border: 2px solid var(--colorBlack);
+  background-color: var(--colorWhite);
+  border: 1px solid var(--colorBlack);
   border-radius: 5px;
+  box-shadow: 5px 5px 15px var(--colorBlack);
 }
 </style>
 

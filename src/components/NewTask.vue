@@ -64,7 +64,7 @@ const addTask = async () => {
 
 <style scoped>
 .add-new-task-container {
-  border: 2px solid var(--colorBlack);
+  border: 1px solid var(--colorBlack);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -72,6 +72,8 @@ const addTask = async () => {
   width: 40%;
   height: 50%;
   border-radius: 30px;
+  background-color: var(--colorWhite);
+  box-shadow: 5px 5px 15px var(--colorBlack);
 }
 
 .input-field-title {

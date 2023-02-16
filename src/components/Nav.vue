@@ -10,8 +10,11 @@
       <router-link class="menu-item" to="/">Task Manager</router-link>
       <router-link class="menu-item" to="/account">Your Account</router-link>
     </div>
-    <div class="welcome-player">
-      <p>Welcome, {{ username }}!</p>
+    <router-link class="welcome-player" to="/account"
+      >Welcome, {{ username }}!</router-link
+    >
+    <div class="log-out-btn-container">
+      <button @click="signOut" class="log-out-button">Log out</button>
     </div>
   </nav>
 </template>
@@ -19,17 +22,28 @@
 <script setup>
 // import PersonalRouter from "./PersonalRouter.vue";
 import { useUserStore } from "../stores/user";
+import { supabase } from "../supabase";
 import { computed } from "vue";
 import { useRouter } from "vue-router";
-import { onMounted, ref } from "vue";
+import { onMounted, ref, toRefs } from "vue";
 
 const username = ref(null);
 const userStore = useUserStore();
+const redirect = useRouter();
 const avatar_url = ref(null);
 
 onMounted(() => {
   getProfile();
 });
+
+const signOut = async () => {
+  try {
+    // call the user store and send the users info to backend to signOut
+    useUserStore().signOut();
+    // then redirect user to the homeView
+    redirect.push({ path: "/auth/login" });
+  } catch (error) {}
+};
 
 async function getProfile() {
   await userStore.fetchUser();
@@ -104,10 +118,37 @@ nav {
   align-items: center;
   justify-content: center;
   height: 100%;
-  width: 30%;
+  width: 25%;
   background-color: var(--colorRed);
   color: var(--colorWhite);
-  font-size: larger;
-  /* border: 3px solid green; */
+  text-decoration: none;
+  font-size: large;
+  font-weight: 500;
+}
+.welcome-player:hover {
+  color: var(--colorRed);
+  background-color: var(--colorWhite);
+  cursor: pointer;
+}
+
+.log-out-btn-container {
+  width: 8%;
+  height: 100%;
+}
+
+.log-out-button {
+  color: var(--colorRed);
+  background-color: var(--colorWhite);
+  font-family: "Poppins", sans-serif;
+  font-size: large;
+  border: 0;
+  font-weight: 500;
+  width: 100%;
+  height: 100%;
+}
+.log-out-button:hover {
+  color: var(--colorWhite);
+  background-color: var(--colorRed);
+  cursor: pointer;
 }
 </style>
