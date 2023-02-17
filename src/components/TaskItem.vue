@@ -2,14 +2,15 @@
   <div class="task-item-container" :class="{ container: isTachado }">
     <h3>{{ task.title }}</h3>
     <h4>{{ task.description }}</h4>
-    <button @click="alertToggle">Delete</button>
+    <button class="btn-image" @click="alertToggle">Delete</button>
     <button
+      class="btn-complete"
       @click="switchToComplete"
       :class="{ markAsCompletedBtn: isTachado }"
     >
       Mark as completed
     </button>
-    <button @click="inputToggle">Edit task</button>
+    <button class="btn-edit" @click="inputToggle">Edit task</button>
     <div v-if="showInput">
       <div>
         <p>Insert new title</p>
@@ -23,7 +24,7 @@
           placeholder="Insert description..."
         />
       </div>
-      <button @click="sendData">Update task</button>
+      <button class="btn-update" @click="sendData">Update task</button>
     </div>
     <div v-if="showAlert" class="caution-container">
       <h2>Sure you want to delete?</h2>
@@ -31,7 +32,7 @@
         src="https://www.graphicproducts.com/assets/images/products/926-label.png"
         alt="delete alert"
       />
-      <button @click="alertToggle">Cancel</button>
+      <button class="btn-cancel" @click="alertToggle">Cancel</button>
       <button @click="deleteTask">Delete</button>
     </div>
   </div>
@@ -85,8 +86,6 @@ const showAlert = ref(false);
 function alertToggle() {
   showAlert.value = !showAlert.value;
 }
-
-// bindear una clase en el template con un ternario
 </script>
 
 <style scoped>
