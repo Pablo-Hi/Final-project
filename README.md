@@ -76,3 +76,21 @@ Para el día de hoy me he propuesto cambiar los desplegables por pop ups.
 - [ ] Cambiar los desplegables por pop ups.
 
 - End of the day:
+
+Al final del día he conseguido completar la tarea propuesta al inicio. A parte de eso también he conseguido darle algunos acabados de CSS al proyecto.
+
+- [x] Cambiar los desplegables por pop ups.
+
+#### Day Six
+
+###### Lunes 21, Febrero 2023
+
+- Start of the day:
+
+Mi objetivo para hoy es poder tener una gran parte del responsive finalizado.
+
+- [ ] Finalizar responsive.
+
+- End of the day:
+
+- [ ] Finalizar responsive.

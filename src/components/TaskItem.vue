@@ -1,39 +1,49 @@
 <template>
   <div class="task-item-container" :class="{ container: isTachado }">
-    <h3>{{ task.title }}</h3>
-    <h4>{{ task.description }}</h4>
-    <button class="btn-image" @click="alertToggle">Delete</button>
-    <button
-      class="btn-complete"
-      @click="switchToComplete"
-      :class="{ markAsCompletedBtn: isTachado }"
-    >
-      Mark as completed
-    </button>
-    <button class="btn-edit" @click="inputToggle">Edit task</button>
-    <div v-if="showInput">
-      <div>
+    <div v-if="showInput" class="edit-data">
+      <div class="new-data-form">
         <p>Insert new title</p>
-        <input type="text" v-model="newTitle" placeholder="Insert title..." />
-      </div>
-      <div>
+        <input type="text" v-model="newTitle" class="title-edit" />
         <p>Insert new description</p>
-        <input
+        <textarea
           type="text"
           v-model="newDescription"
-          placeholder="Insert description..."
-        />
+          class="textarea-edit"
+        ></textarea>
       </div>
-      <button class="btn-update" @click="sendData">Update task</button>
+
+      <div class="btn-edit-container">
+        <button :class="'task-item-btn btn-update'" @click="sendData"></button>
+        <button
+          :class="'task-item-btn btn-cancel'"
+          @click="inputToggle"
+        ></button>
+      </div>
     </div>
-    <div v-if="showAlert" class="caution-container">
-      <h2>Sure you want to delete?</h2>
-      <img
-        src="https://www.graphicproducts.com/assets/images/products/926-label.png"
-        alt="delete alert"
-      />
-      <button class="btn-cancel" @click="alertToggle">Cancel</button>
-      <button @click="deleteTask">Delete</button>
+    <div v-else>
+      <h3 @click="inputToggle">{{ task.title }}</h3>
+      <p @click="inputToggle">{{ task.description }}</p>
+    </div>
+    <div class="btn-container">
+      <button
+        :class="'task-item-btn btn-delete'"
+        @click="alertToggle"
+        v-if="!showInput"
+      ></button>
+      <button
+        @click="switchToComplete"
+        :class="{
+          'task-item-btn': true,
+          'btn-complete': true,
+          markAsCompletedBtn: isTachado,
+        }"
+        v-if="!showInput"
+      ></button>
+      <button
+        :class="'task-item-btn btn-edit'"
+        @click="inputToggle"
+        v-if="!showInput"
+      ></button>
     </div>
   </div>
 </template>
@@ -42,6 +52,7 @@
 import { ref } from "vue";
 import { useTaskStore } from "../stores/task";
 import { supabase } from "../supabase";
+import swal from "sweetalert";
 
 const taskStore = useTaskStore();
 const emit = defineEmits(["updateTask"]);
@@ -85,14 +96,29 @@ const showAlert = ref(false);
 
 function alertToggle() {
   showAlert.value = !showAlert.value;
+  swal({
+    title: "Are you sure?",
+    text: "Once deleted, you will not be able to recover this task!",
+    icon: "warning",
+    buttons: ["Cancel", "Delete"],
+    dangerMode: true,
+  }).then((willDelete) => {
+    if (willDelete) {
+      deleteTask();
+      swal("Poof! Your task has been deleted!", {
+        icon: "success",
+      });
+    } else {
+      swal("Your task is safe!");
+    }
+  });
 }
 </script>
 
 <style scoped>
 .container {
   color: gray;
-  border: 1px solid var(--colorBlack);
-  border-radius: 5px;
+  text-decoration: dashed;
 }
 
 .markAsCompletedBtn {
@@ -102,9 +128,82 @@ function alertToggle() {
 
 .task-item-container {
   background-color: var(--colorWhite);
-  border: 1px solid var(--colorBlack);
-  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 10px;
+  margin: 2%;
+  padding: 3%;
+  height: 300px;
+  width: 300px;
   box-shadow: 5px 5px 15px var(--colorBlack);
+}
+.edit-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 300px;
+  width: 300px;
+  padding: 0 15px;
+}
+
+.new-data-form {
+  display: flex;
+  flex-direction: column;
+}
+.title-edit {
+  font-family: "Poppins", sans-serif;
+  width: 220px;
+  padding: 0 15px;
+}
+.textarea-edit {
+  font-family: "Poppins", sans-serif;
+  width: 220px;
+  height: 70px;
+  padding: 0 15px;
+}
+.btn-edit-container {
+  margin-bottom: 15px;
+}
+.task-item-btn {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  border: 0px solid;
+  margin: 5px;
+}
+.task-item-btn:hover {
+  cursor: pointer;
+  box-shadow: 0 0.5em 0.5em -0.4em var(--colorBlack);
+  transform: translateY(-0.25em);
+}
+.btn-delete {
+  background-image: url("../images/delete.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.btn-complete {
+  background-image: url("../images/complete.png");
+  background-size: cover;
+  background-position: center;
+}
+.btn-edit {
+  background-image: url("../images/edit.png");
+  background-size: cover;
+  background-position: center;
+}
+.btn-update {
+  background-image: url("../images/enviar.png");
+  background-size: cover;
+  background-position: center;
+}
+.btn-cancel {
+  background-image: url("../images/cancel.png");
+  background-size: cover;
+  background-position: center;
 }
 </style>
 

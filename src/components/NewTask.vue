@@ -10,12 +10,12 @@
       placeholder="Add a Task Title"
       v-model="name"
     />
-    <input
+    <textarea
       class="input-field-description"
       type="text"
       placeholder="Add a Task Description"
       v-model="description"
-    />
+    ></textarea>
     <GeneralButton class="add-task-button" @click="addTask"
       >Add task</GeneralButton
     >
@@ -64,33 +64,41 @@ const addTask = async () => {
 
 <style scoped>
 .add-new-task-container {
-  border: 1px solid var(--colorBlack);
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   margin: 3vw;
-  width: 40%;
-  height: 50%;
+  width: 700px;
+  min-height: 400px;
   border-radius: 30px;
   background-color: var(--colorWhite);
   box-shadow: 5px 5px 15px var(--colorBlack);
 }
 
 .input-field-title {
-  width: 85%;
-  height: 7%;
+  font-family: "Poppins", sans-serif;
+  width: 570px;
+  height: 50px;
   border-radius: 5px;
   margin-bottom: 1%;
+  padding-left: 25px;
+  border: 1px solid var(--colorGray);
 }
 
 .input-field-description {
-  width: 85%;
-  height: 20%;
+  max-width: 550px;
+  min-width: 550px;
+  font-family: "Poppins", sans-serif;
+  min-height: 100px;
   border-radius: 5px;
   margin-bottom: 2%;
+  padding: 25px;
+  border: 1px solid var(--colorGray);
 }
 
 .add-task-button {
-  width: 85%;
+  width: 600px;
+  margin-bottom: 40px;
 }
 </style>

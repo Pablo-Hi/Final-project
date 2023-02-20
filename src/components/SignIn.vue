@@ -33,7 +33,7 @@
         <PersonalRouter
           :route="route"
           :buttonText="buttonText"
-          class="button-two"
+          :class="'button-two sing-up-btn'"
         />
       </p>
     </div>
@@ -125,5 +125,29 @@ const signIn = async () => {
   justify-content: space-evenly;
   height: 15vw;
   width: 17vw;
+}
+
+@media (max-width: 768px) {
+  .sing-in-container {
+    width: 50%;
+  }
+
+  .alabama-logo {
+    width: 100px;
+  }
+  .sign-in-form {
+    width: 100%;
+    height: 100%;
+  }
+  .email-input {
+    width: 100%;
+    height: 50px;
+  }
+  .sign-up-container {
+    width: 100%;
+    height: 200px;
+    margin: 0;
+    justify-content: space-between;
+  }
 }
 </style>

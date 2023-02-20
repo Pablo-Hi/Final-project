@@ -1,7 +1,9 @@
 <template>
   <Nav />
   <div class="wrapper">
-    <NewTask @addTitle="getTasks" />
+    <div>
+      <NewTask @addTitle="getTasks" />
+    </div>
     <div class="tasks-in-line">
       <TaskItem
         @updateTask="getTasks"
@@ -11,10 +13,7 @@
       />
     </div>
   </div>
-  <!-- <div class="content">
-    <h3>Your account:</h3>
-    <router-link to="/account">Account</router-link>
-  </div> -->
+  <Footer class="footer" />
 </template>
 
 <script setup>
@@ -24,6 +23,7 @@ import { useRouter } from "vue-router";
 import Nav from "../components/Nav.vue";
 import NewTask from "../components/NewTask.vue";
 import TaskItem from "../components/TaskItem.vue";
+import Footer from "../components/Footer.vue";
 
 const taskStore = useTaskStore();
 
@@ -40,16 +40,19 @@ getTasks();
 
 <style scoped>
 .wrapper {
-  /* border: 3px solid blue; */
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
-  height: 100vh;
+  padding: 0 5%;
 }
 .tasks-in-line {
   display: flex;
-  justify-content: space-around;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer {
+  background-color: var(--colorRed);
 }
 </style>
 

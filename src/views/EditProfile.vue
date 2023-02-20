@@ -12,10 +12,29 @@
       />
       <p>Insert new Position</p>
       <select v-model="newUserPosition" name="position" id="">
-        <option value="Tight End">Tight End</option>
-        <option value="Running Back">Line Backer</option>
-        <option value="Quarterback">Quarterback</option>
-        <option value="Wide Receiver">Wide Receiver</option>
+        <optgroup label="Offense">
+          <option value="Quarterback">Quarterback</option>
+          <option value="Runningback">Running Back</option>
+          <option value="Fullback">Fullback</option>
+          <option value="Left Tackle">Left Tackle</option>
+          <option value="Left Guard">Left Guard</option>
+          <option value="Center">Center</option>
+          <option value="Right Guard">Right Guard</option>
+          <option value="Right Tackle">Right Tackle</option>
+          <option value="Tight End">Tight End</option>
+          <option value="Wide Receiver">Wide Receiver</option>
+          <option value="Wide Receiver">Wide Receiver</option>
+        </optgroup>
+
+        <optgroup label="Defense">
+          <option value="Defensive Tackle">Defensive Tackle</option>
+          <option value="Defensive End">Defensive End</option>
+          <option value="Cornerback">Cornerback</option>
+          <option value="Outside Linebacker">Outside Linebacker</option>
+          <option value="Middle Linebacker">Middle Linebacker</option>
+          <option value="Strong Safety">Strong Safety</option>
+          <option value="Free Safety">Free Safety</option>
+        </optgroup>
       </select>
       <p>Insert new Height (")</p>
       <input
@@ -79,14 +98,14 @@ const updateProfile = async () => {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  height: 100vh;
 }
 .edit-profile-box {
   display: flex;
   flex-direction: column;
   font-size: large;
   font-weight: 800;
-  margin: 3%;
+  margin: 4%;
   padding: 1%;
   width: 500px;
   height: 450px;

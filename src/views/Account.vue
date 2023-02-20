@@ -78,11 +78,11 @@ async function getProfile() {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  height: 100vh;
 }
 .total-profile-box {
   display: flex;
-  margin: 3%;
+  margin: 5%;
   padding: 1%;
   width: 500px;
   height: 300px;

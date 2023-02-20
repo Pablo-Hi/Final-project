@@ -19,7 +19,7 @@
   z-index: 1;
   overflow: hidden;
   display: inline-block;
-  box-shadow: 7px 7px 15px var(--colorBlack);
+  box-shadow: 0px 0px 10px var(--colorBlack);
 }
 .principal-button:hover {
   color: var(--colorRed);
