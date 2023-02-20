@@ -64,3 +64,15 @@ Para el día de hoy me he propuesto terminar la parte de profile donde el usuari
 Al terminar el día puedo decir que casi he completado la parte de profile, solo me faltaría poder modificar también la imagen. Puedo modificar todos los parametros que he puesto y he añadido otros diferentes.
 
 - [x] Añadir funciones al apartado del usuario.
+
+#### Day Five
+
+###### Lunes 20, Febrero 2023
+
+- Start of the day:
+
+Para el día de hoy me he propuesto cambiar los desplegables por pop ups.
+
+- [ ] Cambiar los desplegables por pop ups.
+
+- End of the day:
