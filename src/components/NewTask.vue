@@ -87,8 +87,7 @@ const addTask = async () => {
 }
 
 .input-field-description {
-  max-width: 550px;
-  min-width: 550px;
+  width: 550px;
   font-family: "Poppins", sans-serif;
   min-height: 100px;
   border-radius: 5px;
@@ -100,5 +99,21 @@ const addTask = async () => {
 .add-task-button {
   width: 600px;
   margin-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+  .add-new-task-container {
+    width: 360px;
+    margin: 30px 30px;
+  }
+  .input-field-title {
+    width: 300px;
+  }
+  .input-field-description {
+    width: 277px;
+  }
+  .add-task-button {
+    width: 320px;
+  }
 }
 </style>

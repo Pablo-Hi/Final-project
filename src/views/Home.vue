@@ -1,19 +1,21 @@
 <template>
-  <Nav />
-  <div class="wrapper">
-    <div>
-      <NewTask @addTitle="getTasks" />
+  <body>
+    <Nav />
+    <div class="wrapper">
+      <div>
+        <NewTask @addTitle="getTasks" />
+      </div>
+      <div class="tasks-in-line">
+        <TaskItem
+          @updateTask="getTasks"
+          v-for="task in tasks"
+          :key="task.id"
+          :task="task"
+        />
+      </div>
     </div>
-    <div class="tasks-in-line">
-      <TaskItem
-        @updateTask="getTasks"
-        v-for="task in tasks"
-        :key="task.id"
-        :task="task"
-      />
-    </div>
-  </div>
-  <Footer class="footer" />
+    <Footer class="footer" />
+  </body>
 </template>
 
 <script setup>
@@ -48,11 +50,24 @@ getTasks();
 .tasks-in-line {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: start;
+  margin: 0 5%;
 }
 
-.footer {
-  background-color: var(--colorRed);
+@media (max-width: 768px) {
+  /* body {
+    overflow-x: hidden;
+  } */
+  .tasks-in-line {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    margin: 0;
+  }
+  .wrapper {
+    width: 100%;
+    padding: 0;
+  }
 }
 </style>
 

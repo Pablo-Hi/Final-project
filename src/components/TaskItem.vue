@@ -122,8 +122,7 @@ function alertToggle() {
 }
 
 .markAsCompletedBtn {
-  color: white;
-  background-color: green;
+  box-shadow: 0px 0px 15px var(--colorBlack);
 }
 
 .task-item-container {
@@ -134,9 +133,9 @@ function alertToggle() {
   align-items: center;
   border-radius: 10px;
   margin: 2%;
-  padding: 3%;
+  padding: 2%;
   height: 300px;
-  width: 300px;
+  width: 255px;
   box-shadow: 5px 5px 15px var(--colorBlack);
 }
 .edit-data {
@@ -204,6 +203,12 @@ function alertToggle() {
   background-image: url("../images/cancel.png");
   background-size: cover;
   background-position: center;
+}
+
+@media (max-width: 768px) {
+  .task-item-container {
+    width: 330px;
+  }
 }
 </style>
 

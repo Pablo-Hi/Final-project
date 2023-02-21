@@ -83,7 +83,7 @@ Al final del día he conseguido completar la tarea propuesta al inicio. A parte 
 
 #### Day Six
 
-###### Lunes 21, Febrero 2023
+###### Martes 21, Febrero 2023
 
 - Start of the day:
 
@@ -93,4 +93,19 @@ Mi objetivo para hoy es poder tener una gran parte del responsive finalizado.
 
 - End of the day:
 
+Al final del día puedo decir que he terminado el responsive pero he avanzado mucho. Tengo que ultimar algunos detalles.
+
 - [ ] Finalizar responsive.
+
+#### Day Seven
+
+###### Miercoles 22, Febrero 2023
+
+- Start of the day:
+
+Mi objetivo para hoy es terminar del todo el responsive y el css del proyecto para poder centrarme en otras cosas mañana, como en la lógica de agregar la imagen y preparar la ptesentación.
+
+- [ ] Finalizar responsive.
+
+- End of the day:
+

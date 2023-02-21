@@ -110,13 +110,13 @@ const signUp = async () => {
 <style scoped>
 .sign-up-body {
   display: flex;
-  height: 100vh;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-image: url("https://cdn.vox-cdn.com/thumbor/E0EL7AhJOZx7EorqdS9-J3PnajA=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/24325828/usa_today_17435839.jpg");
   background-size: cover;
   background-position: center;
-  /* border: 5px solid yellow; */
+  padding: 50px;
 }
 .sign-up-container {
   color: var(--colorBlack);
@@ -124,24 +124,20 @@ const signUp = async () => {
   flex-direction: column;
   text-align: center;
   align-items: center;
-  position: relative;
-  bottom: 5%;
-  width: 50vw;
-  height: 40vw;
+  width: 600px;
+  height: 600px;
   background-color: var(--colorWhite);
-  border: 2px solid var(--colorBlack);
+  border: 1px solid var(--colorBlack);
   border-radius: 3px;
   box-shadow: 7px 7px 15px var(--colorBlack);
   background-image: url("https://media.istockphoto.com/id/1291938358/es/v%C3%ADdeo/humo-llenando-el-fondo-de-movimiento-de-la-pantalla-alfa-mate.jpg?s=640x640&k=20&c=E_aOY2Jobf6QYj1whzJcB4F7INB3HyqKztzSscjiaow=");
   background-size: cover;
   background-position: center;
-  /* border: 5px solid pink; */
 }
 
 .header-title {
   position: relative;
   margin-top: 1%;
-  /* border: 5px solid green; */
 }
 
 .form-sign-in {
@@ -150,7 +146,6 @@ const signUp = async () => {
   margin-top: -5%;
   height: 70%;
   width: 35vw;
-  /* border: 5px solid red; */
 }
 .btn-sign-up {
   margin-top: 2vw;
@@ -166,14 +161,22 @@ const signUp = async () => {
 }
 
 .insert-data {
-  /* border: 3px solid blue; */
 }
 .go-back {
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 80%;
-  /* border: 3px solid orange; */
+}
+@media (max-width: 768px) {
+  .form-sign-in {
+    display: flex;
+    flex-direction: column;
+  }
+  .sign-up-container {
+    height: 600px;
+    width: 300px;
+  }
 }
 </style>
 >

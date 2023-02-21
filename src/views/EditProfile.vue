@@ -48,12 +48,16 @@
         v-model="newUserWeight"
         placeholder="Insert Weight..."
       />
+      <p>Insert new Profile Pic</p>
+      <input @change="avatar_url" type="file" />
     </div>
     <GeneralButton @click="updateProfile">Update profile</GeneralButton>
   </body>
+  <Footer/>
 </template>
 <script setup>
 import Nav from "../components/Nav.vue";
+import Footer from "../components/Footer.vue"
 import { ref, reactive, onMounted } from "vue";
 import GeneralButton from "../components/GeneralButton.vue";
 import { useUserStore } from "../stores/user";
@@ -64,6 +68,7 @@ const newUserNumber = ref("");
 const newUserPosition = ref("");
 const newUserHeight = ref("");
 const newUserWeight = ref(null);
+const avatar_url = ref(null);
 const userStore = useUserStore();
 const redirect = useRouter();
 
@@ -74,7 +79,7 @@ async function getProfile() {
   newUserPosition.value = userStore.profile.userposition;
   newUserHeight.value = userStore.profile.userheight;
   newUserWeight.value = userStore.profile.userweight;
-  //   avatar_url.value = userStore.profile.avatar_url;
+  avatar_url.value = userStore.avatars.avatars;
 }
 
 onMounted(() => {
@@ -87,7 +92,8 @@ const updateProfile = async () => {
     newUserNumber.value,
     newUserPosition.value,
     newUserHeight.value,
-    newUserWeight.value
+    newUserWeight.value,
+    avatar_url.value
   );
   redirect.push({ path: "/account" });
 };
@@ -108,14 +114,21 @@ const updateProfile = async () => {
   margin: 4%;
   padding: 1%;
   width: 500px;
-  height: 450px;
+  height: 550px;
   border: 2px solid black;
   background-color: var(--colorWhite);
-
   background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Alabama_Athletics_logo.svg/800px-Alabama_Athletics_logo.svg.png");
   background-size: cover;
   background-position: center;
   border-radius: 15px;
   box-shadow: 5px 5px 15px var(--colorBlack);
+}
+
+@media (max-width: 768px) {
+  .edit-profile-box {
+    width: 350px;
+    height: 530px;
+    margin: 30px 0;
+  }
 }
 </style>

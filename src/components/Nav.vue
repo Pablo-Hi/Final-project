@@ -1,10 +1,12 @@
 <template>
   <nav>
-    <img
-      class="nav-img"
-      src="https://i.bleacherreport.net/images/team_logos/328x328/alabama_crimson_tide_football.png?canvas=492,328"
-      alt="alabama logo"
-    />
+    <router-link :class="'menu-item a-pic-box'" to="/"
+      ><img
+        class="nav-img"
+        src="https://i.bleacherreport.net/images/team_logos/328x328/alabama_crimson_tide_football.png?canvas=492,328"
+        alt="alabama logo"
+    /></router-link>
+
     <div class="menu-routes">
       <router-link class="menu-item" to="/"> Home </router-link>
       <router-link class="menu-item" to="/">Task Manager</router-link>
@@ -80,6 +82,9 @@ nav {
 
   /* border: 3px solid blue; */
 }
+.a-pic-box {
+  width: 50px;
+}
 
 .nav-img {
   height: 100%;
@@ -124,6 +129,7 @@ nav {
   text-decoration: none;
   font-size: large;
   font-weight: 500;
+  margin-right: 25px;
 }
 .welcome-player:hover {
   color: var(--colorRed);
@@ -150,5 +156,21 @@ nav {
   color: var(--colorWhite);
   background-color: var(--colorRed);
   cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .menu-routes {
+    display: none;
+  }
+  .welcome-player {
+    width: 40%;
+    font-size: medium;
+  }
+  .log-out-btn-container {
+    width: 20%;
+  }
+  .log-out-button {
+    font-size: medium;
+  }
 }
 </style>

@@ -9,20 +9,17 @@
         <h3>Height: {{ userheight }}"</h3>
         <h3>Weight: {{ userweight }} lbs</h3>
       </div>
-      <div class="profile-pic">
+      <div class="profile-pic-box">
         <img
           class="profile-pic"
-          :src="
-            avatar_url
-              ? avatar_url
-              : 'https://s.yimg.com/ny/api/res/1.2/JejRllNp6vA008DSG_9mIg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTk1MQ--/https://media.zenfs.com/en/the-tuscaloosa-news/c91cbf31a44372ec2def2c29bbf62a1d'
-          "
-          alt="Profile picture"
+          src="https://s.yimg.com/ny/api/res/1.2/JejRllNp6vA008DSG_9mIg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTk1MQ--/https://media.zenfs.com/en/the-tuscaloosa-news/c91cbf31a44372ec2def2c29bbf62a1d"
+          alt="alabama player"
         />
       </div>
     </div>
     <GeneralButton @click="goToEditProfile">Edit profile</GeneralButton>
   </body>
+  <Footer/>
 </template>
 
 <script setup>
@@ -30,6 +27,7 @@ import { supabase } from "../supabase";
 import { onMounted, ref, toRefs } from "vue";
 import { useUserStore } from "../stores/user";
 import Nav from "../components/Nav.vue";
+import Footer from "../components/Footer.vue"
 import GeneralButton from "../components/GeneralButton.vue";
 import { useRouter } from "vue-router";
 import { computed } from "vue";
@@ -66,7 +64,7 @@ async function getProfile() {
   userposition.value = userStore.profile.userposition;
   userheight.value = userStore.profile.userheight;
   userweight.value = userStore.profile.userweight;
-  avatar_url.value = userStore.profile.avatar_url;
+  avatar_url.value = userStore.profile.image;
 }
 
 // async function that calls the signOut method from the useUserStore and pushes the user back to the Auth view.
@@ -100,12 +98,32 @@ async function getProfile() {
   height: 100%;
   width: 100%;
 }
+.profile-pic-box {
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 100%;
+}
 .profile-pic {
   height: 100%;
   width: 100%;
   object-fit: cover;
   object-position: top;
-  border: 1px solid black;
-  border-radius: 5px;
+}
+@media (max-width: 768px) {
+  .total-profile-box {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 350px;
+    height: 600px;
+  }
+  .profile-pic-box {
+    border: 1px solid black;
+    border-radius: 15px;
+    width: 100%;
+    height: 300px;
+  }
+  .profile-pic {
+    border-radius: 15px;
+  }
 }
 </style>
