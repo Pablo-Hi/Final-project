@@ -130,6 +130,7 @@ const signIn = async () => {
 @media (max-width: 768px) {
   .sing-in-container {
     width: 50%;
+    margin: 40px 0;
   }
 
   .alabama-logo {
@@ -148,6 +149,9 @@ const signIn = async () => {
     height: 200px;
     margin: 0;
     justify-content: space-between;
+  }
+  .sign-in-body{
+    height: 100vh;
   }
 }
 </style>

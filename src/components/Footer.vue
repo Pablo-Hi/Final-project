@@ -28,7 +28,6 @@
 
 <style scoped>
   footer{
-    margin-top: 150px;
     background-color: var(--colorRed);
     color: var(--colorWhite);
     display: flex;
@@ -40,7 +39,7 @@
   width: 50px;
   height: 50px;
   margin: 0 10px;
-  border: 1px solid var(--colorGray);
+  border: 2px solid var(--colorGray);
   border-radius: 50%;
 }
 

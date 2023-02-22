@@ -1,13 +1,8 @@
 <template>
-  <!-- YELLOW -->
   <body class="sign-up-body">
-    <!-- PINK -->
     <div class="sign-up-container">
-      <!-- GREEN -->
       <h1 class="header-title">Become a player!</h1>
-      <!-- RED -->
       <form @submit.prevent="signUp" class="form-sign-in">
-        <!-- BLUE -->
         <div class="insert-data">
           <div class="form-input">
             <label class="input-field-label">E-mail</label>
@@ -44,7 +39,6 @@
           </div>
           <ButtonTwo class="btn-sign-up" type="submit">Sign Up</ButtonTwo>
         </div>
-        <!-- ORANGE -->
         <div class="go-back">
           <p>Have an account?</p>
           <PersonalRouter
@@ -117,6 +111,7 @@ const signUp = async () => {
   background-size: cover;
   background-position: center;
   padding: 50px;
+  height: 100vh;
 }
 .sign-up-container {
   color: var(--colorBlack);
@@ -159,9 +154,6 @@ const signUp = async () => {
   justify-content: center;
   align-items: center;
 }
-
-.insert-data {
-}
 .go-back {
   display: flex;
   flex-direction: column;
@@ -169,13 +161,18 @@ const signUp = async () => {
   height: 80%;
 }
 @media (max-width: 768px) {
+  .sign-up-body{
+    justify-content: flex-start;
+  }
   .form-sign-in {
     display: flex;
     flex-direction: column;
   }
   .sign-up-container {
-    height: 600px;
+    height: 650px;
     width: 300px;
+    justify-content: flex-start;
+    padding: 20px;
   }
 }
 </style>

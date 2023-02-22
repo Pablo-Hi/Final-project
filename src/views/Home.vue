@@ -67,6 +67,8 @@ getTasks();
   .wrapper {
     width: 100%;
     padding: 0;
+    flex-wrap: wrap;
+
   }
 }
 </style>
