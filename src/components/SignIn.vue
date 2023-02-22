@@ -79,6 +79,7 @@ const signIn = async () => {
   background-image: url("https://cdn.vox-cdn.com/thumbor/E0EL7AhJOZx7EorqdS9-J3PnajA=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/24325828/usa_today_17435839.jpg");
   background-size: cover;
   background-position: center;
+  height: 100vh;
 }
 .sing-in-container {
   color: var(--colorBlack);

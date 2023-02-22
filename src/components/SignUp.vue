@@ -163,6 +163,8 @@ const signUp = async () => {
 @media (max-width: 768px) {
   .sign-up-body{
     justify-content: flex-start;
+    padding: 0;
+    
   }
   .form-sign-in {
     display: flex;
@@ -173,6 +175,7 @@ const signUp = async () => {
     width: 300px;
     justify-content: flex-start;
     padding: 20px;
+    margin-top: 40px;
   }
 }
 </style>

@@ -132,7 +132,7 @@ function alertToggle() {
   justify-content: space-around;
   align-items: center;
   border-radius: 10px;
-  margin: 2%;
+  margin: 30px 10px;
   padding: 2%;
   height: 300px;
   width: 255px;
@@ -208,8 +208,7 @@ function alertToggle() {
 @media (max-width: 768px) {
   .task-item-container {
     width: 300px;
-    margin-bottom: 40px;
-
+    margin: 15px
   }
 }
 </style>

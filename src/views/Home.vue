@@ -49,9 +49,11 @@ getTasks();
 }
 .tasks-in-line {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   justify-content: start;
   margin: 0 5%;
+  width: 90%;
 }
 
 @media (max-width: 768px) {
