@@ -115,7 +115,6 @@ const updateProfile = async () => {
   padding: 1%;
   width: 500px;
   height: 550px;
-  border: 2px solid black;
   background-color: var(--colorWhite);
   background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Alabama_Athletics_logo.svg/800px-Alabama_Athletics_logo.svg.png");
   background-size: cover;
@@ -126,7 +125,7 @@ const updateProfile = async () => {
 
 @media (max-width: 768px) {
   .edit-profile-box {
-    width: 350px;
+    width: 320px;
     height: 530px;
     margin: 30px 0;
   }

@@ -84,7 +84,6 @@ async function getProfile() {
   padding: 1%;
   width: 500px;
   height: 300px;
-  border: 2px solid black;
   background-color: var(--colorWhite);
   background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Alabama_Athletics_logo.svg/800px-Alabama_Athletics_logo.svg.png");
   background-size: cover;
@@ -113,8 +112,9 @@ async function getProfile() {
   .total-profile-box {
     display: flex;
     flex-direction: column-reverse;
-    width: 350px;
+    width: 320px;
     height: 600px;
+    margin-bottom: 30px;
   }
   .profile-pic-box {
     border: 1px solid black;

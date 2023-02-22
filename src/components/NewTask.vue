@@ -104,7 +104,7 @@ const addTask = async () => {
 @media (max-width: 768px) {
   .add-new-task-container {
     width: 320px;
-    margin: 30px 30px;
+    margin: 30px 0;
   }
   .input-field-title {
     width: 270px;
