@@ -108,6 +108,7 @@ async function getProfile() {
   object-fit: cover;
   object-position: top;
 }
+
 @media (max-width: 768px) {
   .total-profile-box {
     display: flex;

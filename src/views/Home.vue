@@ -1,5 +1,5 @@
 <template>
-  <body>
+  <body class="push-footer">
     <Nav />
     <div class="wrapper">
       <div>
@@ -14,8 +14,8 @@
         />
       </div>
     </div>
-    <Footer class="footer" />
   </body>
+  <Footer />
 </template>
 
 <script setup>
@@ -56,6 +56,10 @@ getTasks();
   width: 90%;
 }
 
+.push-footer{
+  min-height: 78vh;
+}
+
 @media (max-width: 768px) {
   /* body {
     overflow-x: hidden;
@@ -73,6 +77,8 @@ getTasks();
 
   }
 }
+
+
 </style>
 
 <!-- 
