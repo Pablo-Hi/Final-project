@@ -87,6 +87,7 @@ const signUp = async () => {
       await useUserStore().signUp(email.value, password.value);
       // redirects user to the homeView
       redirect.push({ path: "/auth/login" });
+      alert ("We have sent you a confirmation email to your email address. Click on confirm to finish your registration.")
     } catch (error) {
       // displays error message
       errorMsg.value = error.message;
@@ -140,7 +141,7 @@ const signUp = async () => {
   justify-content: space-between;
   margin-top: -5%;
   height: 70%;
-  width: 35vw;
+  width: 65%;
 }
 .btn-sign-up {
   margin-top: 2vw;
@@ -164,11 +165,14 @@ const signUp = async () => {
   .sign-up-body{
     justify-content: flex-start;
     padding: 0;
-    
+    width: 100%;
   }
   .form-sign-in {
     display: flex;
     flex-direction: column;
+    justify-content: flex-start
+
+
   }
   .sign-up-container {
     height: 650px;

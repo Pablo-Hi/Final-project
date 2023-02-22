@@ -65,8 +65,10 @@ const signIn = async () => {
       await useUserStore().signIn(email.value, password.value);
       redirect.push({ path: "/" });
     } catch (error) {
+      alert ("An error has occurred, please try to register. If you have already registered, go to your email and confirm your email address.")
       console.log(error);
       throw error;
+      
     }
   }
 };
@@ -79,7 +81,7 @@ const signIn = async () => {
   background-image: url("https://cdn.vox-cdn.com/thumbor/E0EL7AhJOZx7EorqdS9-J3PnajA=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/24325828/usa_today_17435839.jpg");
   background-size: cover;
   background-position: center;
-  height: 100vh;
+  height: 100%;
 }
 .sing-in-container {
   color: var(--colorBlack);
@@ -105,7 +107,6 @@ const signIn = async () => {
 .sign-in-form {
   display: flex;
   flex-direction: column;
-  /* height: 20vh; */
   justify-content: space-evenly;
 }
 

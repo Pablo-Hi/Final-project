@@ -163,11 +163,12 @@ nav {
     display: none;
   }
   .welcome-player {
-    width: 40%;
+    width: 50%;
     font-size: medium;
+    margin: 0;
   }
   .log-out-btn-container {
-    width: 20%;
+    width: 25%;
   }
   .log-out-button {
     font-size: medium;
