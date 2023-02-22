@@ -33,7 +33,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* height: 28vh; */
   }
  
 .find-me-logos{

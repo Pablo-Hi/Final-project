@@ -47,7 +47,7 @@ const goToEditProfile = () => {
 const loading = ref(false);
 const website = ref(null);
 const avatar_url = ref(null);
-const username = ref(null);
+const username = ref("Player");
 const usernumber = ref(null);
 const userposition = ref(null);
 const userheight = ref(null);
