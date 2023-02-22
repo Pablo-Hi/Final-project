@@ -9,7 +9,7 @@
 
     <div class="menu-routes">
       <router-link class="menu-item" to="/"> Home </router-link>
-      <router-link class="menu-item" to="/">Task Manager</router-link>
+      <router-link class="menu-item" to="/mystery">Mystery</router-link>
       <router-link class="menu-item" to="/account">Your Account</router-link>
     </div>
     <router-link class="welcome-player" to="/account"
