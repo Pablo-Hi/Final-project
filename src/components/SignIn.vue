@@ -128,8 +128,12 @@ const signIn = async () => {
 }
 
 @media (max-width: 768px) {
+  .sign-in-body{
+    height: 100%;
+  }
   .sing-in-container {
-    width: 50%;
+    width: 60%;
+    height: 750px;
     margin: 40px 0;
   }
 
@@ -139,19 +143,24 @@ const signIn = async () => {
   .sign-in-form {
     width: 100%;
     height: 100%;
+    align-items: center;
   }
   .email-input {
     width: 100%;
     height: 50px;
   }
+  .btn-sign-in{
+    width: 100%;
+
+  }
   .sign-up-container {
     width: 100%;
-    height: 200px;
-    margin: 0;
-    justify-content: space-between;
+    height: 100%;
+    justify-content: space-evenly;
+    align-items: center;
   }
-  .sign-in-body{
-    height: 100vh;
+  .sing-up-btn{
+    width: 80%;
   }
  
 }
