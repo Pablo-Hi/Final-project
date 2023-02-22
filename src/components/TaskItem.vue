@@ -207,7 +207,9 @@ function alertToggle() {
 
 @media (max-width: 768px) {
   .task-item-container {
-    width: 330px;
+    width: 300px;
+    margin-bottom: 40px;
+
   }
 }
 </style>
