@@ -49,7 +49,7 @@
         placeholder="Insert Weight..."
       />
       <p>Insert new Profile Pic</p>
-      <input @change="avatar_url" type="file" />
+      <input @change="newProfilePic" type="file" v-on:input="uploadImage" />
     </div>
     <GeneralButton @click="updateProfile">Update profile</GeneralButton>
   </body>
@@ -62,15 +62,67 @@ import { ref, reactive, onMounted } from "vue";
 import GeneralButton from "../components/GeneralButton.vue";
 import { useUserStore } from "../stores/user";
 import { useRouter } from "vue-router";
+import { supabase } from "../supabase";
 
 const newUserName = ref("");
 const newUserNumber = ref("");
 const newUserPosition = ref("");
 const newUserHeight = ref("");
-const newUserWeight = ref(null);
-const avatar_url = ref(null);
+const newUserWeight = ref(0);
+// const newProfilePic = ref(null);
+const avatar_url = ref('https://khznphzalbcydmmwpanx.supabase.co/storage/v1/object/public/avatars/');
 const userStore = useUserStore();
 const redirect = useRouter();
+const loading = ref(false);
+const src = ref('')
+
+
+const uploadImage = async (element) => {
+  const file = element.target.files[0]
+  console.log(file)
+  try {
+      if(!file || file.length === 0) {
+      throw new Error("You must select a valid picture")
+      };
+
+  const fileExt = file.name.split(".").pop()
+  console.log(fileExt);
+
+  const filePath = `${Math.random()}.${fileExt}`
+
+  let {error:uploadError} = await supabase.storage.from('avatars').upload(filePath, file, {upsert:false})
+
+if (uploadError) throw uploadError
+avatar_url.value = ('https://khznphzalbcydmmwpanx.supabase.co/storage/v1/object/public/avatars/' + filePath)
+
+
+await downloadImage(filePath) 
+    } catch (error) {
+      alert(error.message);
+    } finally {
+      loading.value = false;
+    } 
+}
+
+const downloadImage = async (imgURL) => {
+  try {
+console.log("Filepath", avatar_url);
+    const { data, error } = await supabase.storage
+      .from("avatars")
+      .download(imgURL);
+    if (error) throw error;
+    src.value = URL.createObjectURL(data);
+  } catch (error) {
+    console.error("Error downloading image: ", error.message);
+  }
+};
+
+const editImageLocal = async(value) => {
+    await userStore.editImage(value)
+  
+  }
+
+
 
 async function getProfile() {
   await userStore.fetchUser();
@@ -79,7 +131,7 @@ async function getProfile() {
   newUserPosition.value = userStore.profile.userposition;
   newUserHeight.value = userStore.profile.userheight;
   newUserWeight.value = userStore.profile.userweight;
-  avatar_url.value = userStore.avatars.avatars;
+  // newProfilePic.value = userStore.avatars.avatars;
 }
 
 onMounted(() => {
@@ -87,6 +139,9 @@ onMounted(() => {
 });
 
 const updateProfile = async () => {
+  // if (newProfilePic) {
+  //   avatar_url.value = newProfilePic.value;
+  // }
   await userStore.editProfile(
     newUserName.value,
     newUserNumber.value,
@@ -97,6 +152,9 @@ const updateProfile = async () => {
   );
   redirect.push({ path: "/account" });
 };
+
+
+
 </script>
 
 <style scoped>

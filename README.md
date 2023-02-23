@@ -125,4 +125,22 @@ Para el día de hoy tengo previsto poder hacer que el usuario pueda cambiar su p
 
 - End of the day:
 
+Al final del día puedo decir que aun no he conseguido que se pueda realizar esta acción aunque he avanzado bastante en el proceso.
+
 - [ ] Que el usuario pueda cambiar su foto de perfil
+
+#### Day Nine
+
+###### Viernes 24, Febrero 2023
+
+- Start of the day:
+
+Para el día de hoy tengo previsto terminar lo de la foto de perfil y hacer la presentación antes de las 12.
+
+- [ ] Que el usuario pueda cambiar su foto de perfil
+- [ ] Hacer la presentación
+
+- End of the day:
+
+- [ ] Que el usuario pueda cambiar su foto de perfil
+- [ ] Hacer la presentación

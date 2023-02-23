@@ -10,11 +10,7 @@
         <h3>Weight: {{ userweight }} lbs</h3>
       </div>
       <div class="profile-pic-box">
-        <img
-          class="profile-pic"
-          src="https://s.yimg.com/ny/api/res/1.2/JejRllNp6vA008DSG_9mIg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTk1MQ--/https://media.zenfs.com/en/the-tuscaloosa-news/c91cbf31a44372ec2def2c29bbf62a1d"
-          alt="alabama player"
-        />
+        <h1>{{ profilePic }}</h1>
       </div>
     </div>
     <GeneralButton @click="goToEditProfile">Edit profile</GeneralButton>
@@ -52,6 +48,7 @@ const usernumber = ref(null);
 const userposition = ref(null);
 const userheight = ref(null);
 const userweight = ref(null);
+const profilePic = ref(null);
 
 onMounted(() => {
   getProfile();
@@ -64,7 +61,7 @@ async function getProfile() {
   userposition.value = userStore.profile.userposition;
   userheight.value = userStore.profile.userheight;
   userweight.value = userStore.profile.userweight;
-  avatar_url.value = userStore.profile.image;
+  profilePic.value = userStore.profile.avatar_url;
 }
 
 // async function that calls the signOut method from the useUserStore and pushes the user back to the Auth view.

@@ -10,12 +10,12 @@ export const useUserStore = defineStore("user", {
   actions: {
     async fetchUser() {
       const user = await supabase.auth.user();
-      if(user) {
+      if (user) {
         this.user = user;
         const { data: profile } = await supabase
-        .from('profiles')
-        .select()
-        .match({ user_id: this.user.id })
+          .from('profiles')
+          .select()
+          .match({ user_id: this.user.id })
 
         if (profile) this.profile = profile[0];
         console.log('user in store: ', this.user);
@@ -47,36 +47,42 @@ export const useUserStore = defineStore("user", {
         email: email,
         password: password,
       },
-      {
-        shouldCreateUser: false,
-      });
+        {
+          shouldCreateUser: false,
+        });
       if (error) throw error;
       if (user) {
         this.user = user;
         const { data: profile } = await supabase
-        .from('profiles')
-        .select()
-        .match({ user_id: this.user.id })
+          .from('profiles')
+          .select()
+          .match({ user_id: this.user.id })
 
         if (profile) this.profile = profile[0];
         console.log('profile in store: ', profile);
       }
     },
 
-    async signOut(){
+    async signOut() {
       const { error } = await supabase.auth.signOut();
       if (error) throw error;
     },
-    
-    async editProfile (username, usernumber, userposition, userheight, userweight) {
+
+    async editProfile(username, usernumber, userposition, userheight, userweight) {
       const { data, error } = await supabase.from("profiles").update({
         username: username,
         usernumber: usernumber,
         userposition: userposition,
         userheight: userheight,
         userweight: userweight,
-      }).match({user_id: this.user.id});
+      }).match({ user_id: this.user.id });
     }
+  },
+
+  async editImage(avatar_url) {
+    const { user, error } = await supabase.from("profiles").update({
+      avatar_url: avatar_url
+    }).match({ user_id: this.user.id })
   },
 
   persist: {
