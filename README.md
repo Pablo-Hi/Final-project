@@ -109,3 +109,20 @@ Mi objetivo para hoy es terminar del todo el responsive y el css del proyecto pa
 
 - End of the day:
 
+Al final del día puedo decir que he terminado todo el responsive y casi que todo el proyecto. Solo me queda poder hacer que el usuario pueda cambiar su foto de perfil.
+
+- [x] Finalizar responsive.
+
+#### Day Eight
+
+###### Jueves 23, Febrero 2023
+
+- Start of the day:
+
+Para el día de hoy tengo previsto poder hacer que el usuario pueda cambiar su propia foto de perfil. Una vez consiga esto solo me quedará centrarme en la presentación.
+
+- [ ] Que el usuario pueda cambiar su foto de perfil
+
+- End of the day:
+
+- [ ] Que el usuario pueda cambiar su foto de perfil
