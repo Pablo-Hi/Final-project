@@ -122,7 +122,7 @@ function alertToggle() {
 }
 
 .markAsCompletedBtn {
-  box-shadow: 0px 0px 15px var(--colorBlack);
+  box-shadow: 0px 0px 80px var(--colorBlack);
 }
 
 .task-item-container {

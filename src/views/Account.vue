@@ -10,7 +10,8 @@
         <h3>Weight: {{ userweight }} lbs</h3>
       </div>
       <div class="profile-pic-box">
-        <h1>{{ profilePic }}</h1>
+        <img class="profile-pic" src="https://s.yimg.com/ny/api/res/1.2/JejRllNp6vA008DSG_9mIg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTk1MQ--/https://media.zenfs.com/en/the-tuscaloosa-news/c91cbf31a44372ec2def2c29bbf62a1d" alt="alabama player">
+        <h1>{{ avatar_url }}</h1>
       </div>
     </div>
     <GeneralButton @click="goToEditProfile">Edit profile</GeneralButton>

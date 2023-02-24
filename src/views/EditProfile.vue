@@ -69,7 +69,7 @@ const newUserNumber = ref("");
 const newUserPosition = ref("");
 const newUserHeight = ref("");
 const newUserWeight = ref(0);
-// const newProfilePic = ref(null);
+const newProfilePic = ref(null);
 const avatar_url = ref('https://khznphzalbcydmmwpanx.supabase.co/storage/v1/object/public/avatars/');
 const userStore = useUserStore();
 const redirect = useRouter();
@@ -131,7 +131,7 @@ async function getProfile() {
   newUserPosition.value = userStore.profile.userposition;
   newUserHeight.value = userStore.profile.userheight;
   newUserWeight.value = userStore.profile.userweight;
-  // newProfilePic.value = userStore.avatars.avatars;
+  newProfilePic.value = userStore.profile.avatar_url;
 }
 
 onMounted(() => {
