@@ -6,6 +6,8 @@ import SignIn from "../components/SignIn.vue";
 import SignUp from "../components/SignUp.vue";
 import EditProfile from "../views/EditProfile.vue";
 import Mystery from "../views/Mystery.vue"
+import { SupabaseClient } from "@supabase/supabase-js";
+import { supabase } from "../supabase";
 
 const routes = [
   {
