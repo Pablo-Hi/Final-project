@@ -143,8 +143,8 @@ nav {
 }
 
 .log-out-button {
-  color: var(--colorRed);
-  background-color: var(--colorWhite);
+  color: var(--colorWhite);
+  background-color: var(--colorRed);
   font-family: "Poppins", sans-serif;
   font-size: large;
   border: 0;
@@ -153,8 +153,8 @@ nav {
   height: 100%;
 }
 .log-out-button:hover {
-  color: var(--colorWhite);
-  background-color: var(--colorRed);
+  color: var(--colorRed);
+  background-color: var(--colorWhite);
   cursor: pointer;
 }
 
